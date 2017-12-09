@@ -7,8 +7,12 @@ angular.module('video-player')
       this.query = '';
       this.next = '';
       this.previous = '';
-      this.moreresults = () => {
-        this.searchhandler(this.query, this.getsuccess, this.next);
+      this.moreresults = (direction) => {
+        if (direction === 'next') {
+          this.searchhandler(this.query, this.getsuccess, this.next);
+        } else if (direction === 'prev') {
+          this.searchhandler(this.query, this.getsuccess, this.previous);
+        }
       };
       this.clickhandler = (video) => {
         this.video = video;
@@ -20,6 +24,7 @@ angular.module('video-player')
         }
         this.query = userinput;
         this.next = response.data.nextPageToken;
+        this.previous = response.data.prevPageToken;
       };
       this.sharkattack = () => {
         alert('Welcome to Shark Tube! Brought to you by Andrew and Logan!');
