@@ -1,6 +1,6 @@
 angular.module('video-player')
   .service('youTube', function($http) {
-    this.searchhandler = _.debounce((userinput, getsuccess, page) => {
+    this.searchhandler = _.debounce((userinput, getsuccess) => {
       if (userinput) {
         $http({
           method: 'GET',
@@ -11,12 +11,11 @@ angular.module('video-player')
             maxResults: 5,
             type: 'video',
             format: 5,
-            q: userinput,
-            pageToken: page || ''
+            q: userinput
           }
         }).then(function successCallback(response) {
-          console.log('GETTIN IT!'); 
-          getsuccess(response, userinput);
+          console.log('GETTIN IT!');
+          getsuccess(response);
         }, function errorCallBack(response) {
           console.log('GET FAILED!');
         });

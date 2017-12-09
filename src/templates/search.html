@@ -1,5 +1,5 @@
 <div class="search-bar form-inline">
-  <input class="form-control" type="text" ng-model='userinput'/>
+  <input class="form-control" type="text" ng-model='userinput' ng-keydown="$event.which === 13 && $ctrl.searchhandler(userinput, $ctrl.getsuccess)"/>
   <button class="btn" ng-click="$ctrl.searchhandler(userinput, $ctrl.getsuccess)">
     <span class="glyphicon glyphicon-search"></span>
   </button>

@@ -1,3 +1,14 @@
 <ul class="video-list">
   <video-list-entry ng-repeat="video in $ctrl.videos" video="video" clickhandler="$ctrl.clickhandler"></video-list-entry>
+  <hr>
+  <span>
+    <button class="btn" ng-click="$ctrl.moreresults()">
+      Previous
+    </button>
+  </span>
+  <span>
+    <button class="btn" style="float: right;" ng-click="$ctrl.moreresults()">
+      Next
+    </button>
+  </span>
 </ul>
